@@ -1,0 +1,124 @@
+/* src/components/TablaBingo.module.css */
+
+.bingoBoardWrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 800; /* font-extrabold */
+  color: #fff; /* text-white */
+  text-align: center;
+  margin-bottom: 1.5rem; /* mb-6 */
+  filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.07)); /* drop-shadow-lg */
+}
+
+@media (min-width: 768px) { /* md */
+  .title {
+    font-size: 2.25rem; /* md:text-4xl */
+  }
+}
+
+.lettersGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.5rem; /* gap-2 */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+@media (min-width: 768px) { /* md */
+  .lettersGrid {
+    gap: 1rem; /* md:gap-4 */
+  }
+}
+
+.letter {
+  text-align: center;
+  font-weight: 900; /* font-black */
+  font-size: 1.875rem; /* text-3xl */
+  filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.07)); /* drop-shadow-md */
+}
+
+@media (min-width: 768px) { /* md */
+  .letter {
+    font-size: 2.25rem; /* md:text-4xl */
+  }
+}
+
+/* Colores para las letras */
+.letterB { color: #60a5fa; /* text-blue-400 */ }
+.letterI { color: #f87171; /* text-red-400 */ }
+.letterN { color: #fbbf24; /* text-yellow-400 */ }
+.letterG { color: #4ade80; /* text-green-400 */ }
+.letterO { color: #a78bfa; /* text-purple-400 */ }
+
+.numbersGridContainer {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.5rem; /* gap-2 */
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 0.5rem; /* p-2 */
+  background-color: rgba(255, 255, 255, 0.05); /* bg-white/5 */
+  border-radius: 0.75rem; /* rounded-xl */
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06); /* shadow-inner */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* border border-white/10 */
+}
+
+@media (min-width: 768px) { /* md */
+  .numbersGridContainer {
+    grid-template-columns: repeat(10, minmax(0, 1fr)); /* md:grid-cols-10 */
+  }
+}
+
+@media (min-width: 1024px) { /* lg */
+  .numbersGridContainer {
+    grid-template-columns: repeat(15, minmax(0, 1fr)); /* lg:grid-cols-15 */
+  }
+}
+
+@media (min-width: 1280px) { /* xl */
+  .numbersGridContainer {
+    grid-template-columns: repeat(15, minmax(0, 1fr)); /* xl:grid-cols-15 */
+  }
+}
+
+.numberCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 0.5rem; /* rounded-lg */
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 700; /* font-bold */
+  transition: all 0.2s ease-out;
+}
+
+@media (min-width: 768px) { /* md */
+  .numberCell {
+    font-size: 1.25rem; /* md:text-xl */
+  }
+}
+
+.numberCellCalled {
+  background-color: #84cc16; /* bg-lime-500 */
+  color: #fff; /* text-white */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+  transform: scale(1.1); /* transform scale-110 */
+  animation: number-pop 0.3s ease-out; /* animate-number-pop */
+  border: 2px solid #bef264; /* ring-2 ring-lime-300 */
+}
+
+.numberCellUncalled {
+  background-color: rgba(255, 255, 255, 0.05); /* bg-white/5 */
+  color: #d1d5db; /* text-gray-300 */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-md */
+}
+
+.numberCellUncalled:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* hover:bg-white/10 */
+  color: #fff; /* hover:text-white */
+}
