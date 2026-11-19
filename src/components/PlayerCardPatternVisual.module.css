@@ -3,7 +3,8 @@
 .cardVisualContainer {
   margin-top: 1rem; /* Espacio superior */
   margin-bottom: 1rem; /* Espacio inferior */
-  max-width: 200px; /* Tamaño fijo para el mini-esquema */
+  width: 80%; /* Permite que el mini-esquema ocupe el 80% del ancho del padre */
+  max-width: 200px; /* Pero con un tamaño máximo para que no sea demasiado grande */
   margin-left: auto;
   margin-right: auto;
   border: 2px solid #a78bfa; /* indigo-400 */
@@ -42,8 +43,8 @@
   width: 100%;
   aspect-ratio: 1 / 1; /* Celdas cuadradas */
   background-color: rgba(255, 255, 255, 0.08); /* Fondo de celda normal */
-  color: rgba(255, 255, 255, 0.4); /* Color de texto sutil */
-  font-size: 0.8rem; /* Tamaño de texto */
+  color: rgba(255, 255, 255, 0.7); /* Color de texto sutil pero legible */
+  font-size: 0.9rem; /* Tamaño de texto */
   font-weight: 600; /* font-semibold */
   transition: background-color 0.2s ease-out;
 }

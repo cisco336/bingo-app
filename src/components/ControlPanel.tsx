@@ -2,7 +2,7 @@ import React from 'react';
 import { ControlPanelProps, GameMode } from '@/types/types';
 import styles from './ControlPanel.module.css';
 
-const ControlPanel: React.FC<ControlPanelProps> = ({ lastCalledNumber, remainingNumbersCount, onCallNextNumber, lastFiveCalledNumbers, activeGameMode, onGameModeChange, gameModes, onOpenOptionsMenu }) => {
+const ControlPanel: React.FC<ControlPanelProps> = ({ lastCalledNumber, remainingNumbersCount, onCallNextNumber, lastFiveCalledNumbers, activeGameMode, onGameModeChange, gameModes, onOpenOptionsMenu, onToggleBoardOrientation, isBoardHorizontal }) => {
 
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     onGameModeChange(event.target.value as GameMode);
@@ -30,7 +30,7 @@ const ControlPanel: React.FC<ControlPanelProps> = ({ lastCalledNumber, remaining
       </div>
 
       {/* Último Número Cantado - Gigante y Llamativo */}
-      <div className={styles.lastCalledNumberContainer}>
+      <div className={styles.lastCalledNumberContainer} aria-live="polite">
         {lastCalledNumber !== null && lastCalledNumber !== 'FIN' && (
           <span className={styles.pingAnimation}></span>
         )}
@@ -57,6 +57,14 @@ const ControlPanel: React.FC<ControlPanelProps> = ({ lastCalledNumber, remaining
         className={styles.optionsMenuButton}
       >
         Opciones de Juego
+      </button>
+
+      {/* Botón para alternar la orientación del tablero */}
+      <button
+        onClick={onToggleBoardOrientation}
+        className={`${styles.optionsMenuButton} ${styles.toggleOrientationButton}`}
+      >
+        {isBoardHorizontal ? 'Mostrar Tablero Vertical' : 'Mostrar Tablero Horizontal'}
       </button>
 
 

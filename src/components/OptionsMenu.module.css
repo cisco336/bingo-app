@@ -52,8 +52,8 @@
 }
 
 .sectionDescription {
-  font-size: 0.875rem; /* text-sm */
-  color: #cbd5e0; /* gray-300 */
+  font-size: 1rem; /* text-base */
+  color: #edf2f7; /* gray-200 */
   margin-bottom: 1rem; /* mb-4 */
 }
 
@@ -154,8 +154,8 @@
   width: 100%;
   aspect-ratio: 1 / 1;
   background-color: #2d3748; /* gray-800 */
-  color: #a0aec0; /* gray-400 */
-  font-size: 0.75rem;
+  color: #edf2f7; /* gray-200 */
+  font-size: 1rem; /* text-base */
   font-weight: 500;
 }
 
@@ -165,8 +165,8 @@
 }
 
 .generatedCardsHint {
-  font-size: 0.75rem; /* text-xs */
-  color: #a0aec0; /* gray-400 */
+  font-size: 0.875rem; /* text-sm */
+  color: #cbd5e0; /* gray-300 */
   text-align: center;
   margin-top: 1rem; /* mt-4 */
 }

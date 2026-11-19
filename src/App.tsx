@@ -54,12 +54,12 @@ const GAME_MODES: GameModeOption[] = [
   {
     id: 'VOWELS_ONLY',
     name: 'Modo "Vocales" (I, O)',
-    description: 'Completar todas las casillas en las columnas B, I y O del cartón.',
+    description: 'Completar todas las casillas en las columnas I y O del cartón.',
   },
   {
     id: 'CONSONANTS_ONLY',
     name: 'Modo "Consonantes" (B, N, G)',
-    description: 'Completar todas las casillas en las columnas N y G del cartón.',
+    description: 'Completar todas las casillas en las columnas B, N y G del cartón.',
   },
   {
     id: 'B_AND_O',
@@ -169,6 +169,7 @@ function App(): JSX.Element {
   const [activeGameMode, setActiveGameMode] = useState<GameMode>(initialState.activeGameMode);
   const [showOptionsMenu, setShowOptionsMenu] = useState<boolean>(false);
   const [generatedCards, setGeneratedCards] = useState<BingoCard[] | null>(null);
+  const [isBoardHorizontal, setIsBoardHorizontal] = useState<boolean>(false); // Nuevo estado para la orientación del tablero
 
   const [remainingNumbersCount, setRemainingNumbersCount] = useState<number>(75);
 
@@ -199,6 +200,7 @@ function App(): JSX.Element {
     setLastFiveCalledNumbers([]);
     setActiveGameMode('TRADITIONAL_LINE');
     setGeneratedCards(null);
+    setIsBoardHorizontal(false); // Resetear también la orientación al reiniciar el juego
     setShowOptionsMenu(false);
   }, []);
 
@@ -270,12 +272,14 @@ function App(): JSX.Element {
             onGameModeChange={handleGameModeChange}
             gameModes={GAME_MODES}
             onOpenOptionsMenu={() => setShowOptionsMenu(true)}
+            onToggleBoardOrientation={() => setIsBoardHorizontal(prev => !prev)}
+            isBoardHorizontal={isBoardHorizontal}
           />
         </div>
 
         {/* Tabla de Bingo */}
         <div className={styles.bingoBoardContainer}>
-          <TablaBingo calledNumbers={calledNumbers} activeGameMode={activeGameMode} />
+          <TablaBingo calledNumbers={calledNumbers} activeGameMode={activeGameMode} isBoardHorizontal={isBoardHorizontal} />
         </div>
       </main>
 

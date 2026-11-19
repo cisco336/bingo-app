@@ -37,6 +37,7 @@ export interface GameModeOption {
 export interface TablaBingoProps {
   calledNumbers: Set<number>;
   activeGameMode: GameMode; // ¡Nuevo!: Modo de juego activo para posible resaltado futuro
+  isBoardHorizontal: boolean; // Nuevo!: Para controlar la orientación del tablero
 }
 
 // Define la interfaz para las props del componente ControlPanel.
@@ -49,6 +50,8 @@ export interface ControlPanelProps {
   onGameModeChange: (mode: GameMode) => void;
   gameModes: GameModeOption[];
   onOpenOptionsMenu: () => void; // ¡Nuevo!: Para abrir el menú de opciones
+  onToggleBoardOrientation: () => void; // ¡Nuevo!: Para alternar la orientación del tablero
+  isBoardHorizontal: boolean; // ¡Nuevo!: Estado actual de la orientación del tablero
 }
 
 // Define la interfaz para un cartón de bingo generado

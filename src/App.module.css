@@ -166,9 +166,10 @@
 
 @media (min-width: 1024px) { /* lg */
   .panelContainer {
-    width: 33.333333%; /* lg:w-1/3 */
+    flex: 1; /* Permite que el panel crezca */
+    max-width: 28rem; /* Limita el ancho del panel en pantallas muy grandes */
   }
   .bingoBoardContainer {
-    width: 66.666667%; /* lg:w-2/3 */
+    flex: 2; /* Permite que el tablero crezca el doble que el panel */
   }
 }
