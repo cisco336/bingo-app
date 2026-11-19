@@ -2,7 +2,7 @@ import React from 'react';
 import { TablaBingoProps } from '@/types/types';
 import styles from './TablaBingo.module.css';
 
-const TablaBingo: React.FC<TablaBingoProps> = ({ calledNumbers, activeGameMode, isBoardHorizontal }) => {
+const TablaBingo: React.FC<TablaBingoProps> = ({ calledNumbers, isBoardHorizontal }) => {
   const letters = [
     { char: 'B', className: styles.letterB, range: { start: 1, end: 15 } },
     { char: 'I', className: styles.letterI, range: { start: 16, end: 30 } },
