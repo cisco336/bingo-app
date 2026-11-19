@@ -1,19 +1,11 @@
 /* src/components/ControlPanel.module.css */
 
 .controlPanelWrapper {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-align: center;
+  @apply h-full flex flex-col justify-between text-center;
 }
 
 .title {
-  font-size: 1.875rem; /* text-3xl */
-  font-weight: 800; /* font-extrabold */
-  color: #fff; /* text-white */
-  margin-bottom: 1.5rem; /* mb-6 */
-  filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.07)); /* drop-shadow-lg */
+  @apply text-3xl font-extrabold text-white mb-6 drop-shadow-lg;
 }
 
 @media (min-width: 768px) { /* md */
@@ -24,16 +16,11 @@
 
 /* Estilos para el selector de modalidad */
 .gameModeSelectorContainer {
-  margin-bottom: 1.5rem; /* mb-6 */
-  text-align: left;
+  @apply mb-6 text-left;
 }
 
 .gameModeSelectorLabel {
-  display: block;
-  font-size: 1rem; /* text-base para móviles */
-  color: #fef08a; /* yellow-200 */
-  font-weight: 500; /* font-medium */
-  margin-bottom: 0.5rem; /* mb-2 */
+  @apply block text-base text-yellow-200 font-medium mb-2;
 }
 
 @media (min-width: 768px) { /* md */
@@ -43,22 +30,11 @@
 }
 
 .gameModeSelect {
-  width: 100%;
-  padding: 0.5rem 1rem; /* py-2 px-4 para móviles */
-  border-radius: 0.5rem; /* rounded-lg */
-  background-color: rgba(255, 255, 255, 0.1); /* bg-white/10 */
-  color: #fff; /* text-white */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* border-white/20 */
-  font-size: 0.875rem; /* text-sm para móviles */
-  cursor: pointer;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+  @apply w-full py-2 px-4 rounded-lg bg-white/10 text-white border border-white/20 text-sm cursor-pointer appearance-none pr-9;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='white'%3e%3cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
-  background-size: 1.25em 1.25em; /* Tamaño de icono más pequeño para móviles */
-  padding-right: 2.25rem; /* Espacio para el icono */
+  background-size: 1.25em 1.25em;
 }
 
 @media (min-width: 768px) { /* md */
@@ -71,22 +47,12 @@
 }
 
 .gameModeSelect option {
-  background-color: #1a202c;
-  color: #fff;
+  @apply bg-gray-900 text-white;
 }
 
 .lastCalledNumberContainer {
+  @apply mb-6 p-3 bg-gradient-to-br from-purple-500 to-pink-500 rounded-[1.5rem] shadow-xl border-4 border-yellow-300 flex flex-col items-center justify-center;
   position: relative;
-  margin-bottom: 1.5rem; /* mb-6 para móviles */
-  padding: 0.75rem; /* p-3 para móviles */
-  background: linear-gradient(to bottom right, #a855f7, #ec4899);
-  border-radius: 1.5rem;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-  border: 4px solid #facc15;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 @media (min-width: 768px) { /* md */
@@ -97,19 +63,14 @@
 }
 
 .pingAnimation {
+  @apply rounded-[1.5rem] bg-yellow-300 opacity-75;
   position: absolute;
   inset: 0;
-  border-radius: 1.5rem;
-  background-color: #facc15;
-  opacity: 0.75;
   animation: ping-once 0.75s cubic-bezier(0, 0, 0.2, 1);
 }
 
 .lastCalledLabel {
-  font-size: 1rem; /* text-base para móviles */
-  color: #fef08a;
-  font-weight: 600;
-  margin-bottom: 0.25rem; /* mb-1 */
+  @apply text-base text-yellow-200 font-semibold mb-1;
   z-index: 10;
 }
 
@@ -121,10 +82,7 @@
 }
 
 .lastCalledNumber {
-  font-size: 4rem; /* text-6xl para móviles */
-  font-weight: 900;
-  color: #fff;
-  filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.07));
+  @apply text-6xl font-black text-white drop-shadow;
   line-height: 1;
   z-index: 10;
 }
@@ -142,18 +100,7 @@
 }
 
 .callNextButton {
-  width: 100%;
-  padding-top: 0.75rem; /* py-3 para móviles */
-  padding-bottom: 0.75rem; /* py-3 para móviles */
-  padding-left: 1rem; /* px-4 */
-  padding-right: 1rem; /* px-4 */
-  margin-bottom: 1.5rem; /* mb-6 para móviles */
-  background: linear-gradient(to right, #10b981, #14b8a6);
-  color: #fff;
-  font-size: 1.5rem; /* text-2xl para móviles */
-  font-weight: 800;
-  border-radius: 0.75rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  @apply w-full py-3 px-4 mb-6 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-2xl font-extrabold rounded-xl shadow-lg;
   transform: scale(1);
   transition: all 0.3s ease-out;
   position: relative;
@@ -161,7 +108,7 @@
 }
 
 .callNextButton:hover {
-  background: linear-gradient(to right, #059669, #0d9488);
+  @apply bg-gradient-to-r from-emerald-700 to-teal-700;
   transform: scale(1.05);
 }
 
@@ -170,24 +117,23 @@
 }
 
 .callNextButton:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+  @apply opacity-50 cursor-not-allowed;
   transform: scale(1);
 }
 
 .callNextButtonRelief {
+  @apply opacity-0;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.2), transparent);
-  opacity: 0;
   transition: opacity 0.3s;
 }
 
 .callNextButton:hover .callNextButtonRelief {
-  opacity: 1;
+  @apply opacity-100;
 }
 
 @media (min-width: 640px) { /* sm */
@@ -207,27 +153,19 @@
 
 /* Nuevo botón de Opciones de Juego */
 .optionsMenuButton {
-  width: 100%;
-  padding: 0.75rem 1rem; /* py-3 px-4 */
-  margin-bottom: 1.5rem; /* mb-6 */
-  background-color: #a78bfa; /* indigo-400 */
-  color: #fff;
-  border-radius: 0.5rem; /* rounded-lg */
-  font-weight: 600; /* font-semibold */
-  transition: background-color 0.2s ease-in-out;
+  @apply w-full py-3 px-4 mb-6 bg-indigo-400 text-white rounded-lg font-semibold transition-colors duration-200;
 }
 
 .optionsMenuButton:hover {
-  background-color: #8b5cf6; /* indigo-500 */
+  @apply bg-indigo-500;
 }
 
 .toggleOrientationButton {
-  background-color: #3b82f6; /* blue-500 */
-  margin-bottom: 1.5rem; /* mb-6 */
+  @apply bg-blue-500 mb-6;
 }
 
 .toggleOrientationButton:hover {
-  background-color: #2563eb; /* blue-600 */
+  @apply bg-blue-600;
 }
 
 @media (min-width: 768px) { /* md */
@@ -238,12 +176,7 @@
 
 
 .historyContainer {
-  margin-bottom: 1rem; /* mb-4 para móviles */
-  padding: 0.75rem; /* p-3 para móviles */
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 0.75rem;
-  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  @apply mb-4 p-3 bg-white/10 rounded-xl shadow-inner border border-white/10;
 }
 
 @media (min-width: 768px) { /* md */
@@ -254,11 +187,7 @@
 }
 
 .historyTitle {
-  font-size: 1rem; /* text-base para móviles */
-  color: #fef08a;
-  font-weight: 500;
-  text-align: center;
-  margin-bottom: 0.5rem; /* mb-2 */
+  @apply text-base text-yellow-200 font-medium text-center mb-2;
 }
 
 @media (min-width: 768px) { /* md */
@@ -269,10 +198,7 @@
 }
 
 .historyNumbers {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.25rem; /* gap-1 para móviles */
+  @apply flex flex-wrap justify-center gap-1;
 }
 
 @media (min-width: 768px) { /* md */
@@ -282,16 +208,7 @@
 }
 
 .historyNumberPill {
-  background-color: #2563eb;
-  color: #fff;
-  padding-left: 0.75rem; /* px-3 para móviles */
-  padding-right: 0.75rem; /* px-3 para móviles */
-  padding-top: 0.125rem; /* py-0.5 para móviles */
-  padding-bottom: 0.125rem; /* py-0.5 para móviles */
-  border-radius: 9999px;
-  font-size: 0.75rem; /* text-xs para móviles */
-  font-weight: 600;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  @apply bg-blue-600 text-white px-3 py-0.5 rounded-full text-xs font-semibold shadow;
 }
 
 @media (min-width: 768px) { /* md */
@@ -305,8 +222,7 @@
 }
 
 .historyEmpty {
-  color: #9ca3af;
-  font-size: 0.875rem; /* text-sm para móviles */
+  @apply text-gray-400 text-sm;
 }
 
 @media (min-width: 768px) { /* md */
@@ -316,12 +232,7 @@
 }
 
 .remainingCounterContainer {
-  padding: 0.75rem; /* p-3 para móviles */
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 0.75rem;
-  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: auto;
+  @apply p-3 bg-white/10 rounded-xl shadow-inner border border-white/10 mt-auto;
 }
 
 @media (min-width: 768px) { /* md */
@@ -331,9 +242,7 @@
 }
 
 .remainingCounterLabel {
-  font-size: 1rem; /* text-base para móviles */
-  color: #fef08a;
-  font-weight: 500;
+  @apply text-base text-yellow-200 font-medium;
 }
 
 @media (min-width: 768px) { /* md */
@@ -343,11 +252,7 @@
 }
 
 .remainingCounterNumber {
-  font-size: 2.5rem; /* text-4xl para móviles */
-  font-weight: 700;
-  color: #fcd34d;
-  margin-top: 0.25rem;
-  filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.07));
+  @apply text-4xl font-bold text-yellow-300 mt-1 drop-shadow;
 }
 
 @media (min-width: 640px) { /* sm */
