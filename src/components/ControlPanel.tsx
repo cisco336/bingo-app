@@ -1,11 +1,33 @@
 import React from 'react';
-import { ControlPanelProps } from '@/types/types';
-import styles from './ControlPanel.module.css'; // Importar el módulo CSS
+import { ControlPanelProps, GameMode } from '@/types/types';
+import styles from './ControlPanel.module.css';
 
-const ControlPanel: React.FC<ControlPanelProps> = ({ lastCalledNumber, remainingNumbersCount, onCallNextNumber, lastFiveCalledNumbers }) => {
+const ControlPanel: React.FC<ControlPanelProps> = ({ lastCalledNumber, remainingNumbersCount, onCallNextNumber, lastFiveCalledNumbers, activeGameMode, onGameModeChange, gameModes, onOpenOptionsMenu }) => {
+
+  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    onGameModeChange(event.target.value as GameMode);
+  };
+
   return (
     <div className={styles.controlPanelWrapper}>
       <h2 className={styles.title}>Panel del Anfitrión</h2>
+
+      {/* Selector de Modalidad de Juego */}
+      <div className={styles.gameModeSelectorContainer}>
+        <label htmlFor="game-mode-select" className={styles.gameModeSelectorLabel}>Selecciona Modalidad:</label>
+        <select
+          id="game-mode-select"
+          className={styles.gameModeSelect}
+          value={activeGameMode}
+          onChange={handleSelectChange}
+        >
+          {gameModes.map((mode) => (
+            <option key={mode.id} value={mode.id}>
+              {mode.name}
+            </option>
+          ))}
+        </select>
+      </div>
 
       {/* Último Número Cantado - Gigante y Llamativo */}
       <div className={styles.lastCalledNumberContainer}>
@@ -28,6 +50,15 @@ const ControlPanel: React.FC<ControlPanelProps> = ({ lastCalledNumber, remaining
         {/* Efecto de relieve simulado */}
         <span className={styles.callNextButtonRelief}></span>
       </button>
+
+      {/* Botón para abrir el Menú de Opciones */}
+      <button
+        onClick={onOpenOptionsMenu}
+        className={styles.optionsMenuButton}
+      >
+        Opciones de Juego
+      </button>
+
 
       {/* Historial de últimos 5 números - Píldoras */}
       <div className={styles.historyContainer}>
