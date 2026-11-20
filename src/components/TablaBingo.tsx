@@ -33,6 +33,7 @@ const TablaBingo: React.FC<TablaBingoProps> = ({ calledNumbers, isBoardHorizonta
                     <div
                       key={number}
                       className={`${styles.numberCell} ${isCalled ? styles.numberCellCalled : styles.numberCellUncalled}`}
+                      title={`${letter.char}-${number}`}
                     >
                       {number}
                     </div>
@@ -60,6 +61,7 @@ const TablaBingo: React.FC<TablaBingoProps> = ({ calledNumbers, isBoardHorizonta
                   <div
                     key={number}
                     className={`${styles.numberCell} ${isCalled ? styles.numberCellCalled : styles.numberCellUncalled}`}
+                    title={`${letter.char}-${number}`}
                   >
                     {number}
                   </div>

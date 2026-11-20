@@ -1,0 +1,103 @@
+/* src/components/PrintableBingoCards.module.css */
+
+@page {
+  size: letter;
+  margin: 0.5in; /* Márgenes para la impresión */
+}
+
+.printContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+  grid-template-rows: repeat(2, 1fr);    /* 2 filas */
+  gap: 0.5in; /* Espacio entre los cartones */
+  width: 7.5in; /* Ancho total de la página (8.5in - 0.5in*2) */
+  height: 10in; /* Alto total de la página (11in - 0.5in*2) */
+  padding: 0.25in; /* Padding para ajustar el contenido */
+  box-sizing: border-box;
+}
+
+.bingoCard {
+  border: 1px solid black;
+  width: 3.5in; /* Ancho de cada cartón (ajustar para 4 por página) */
+  height: 4.5in; /* Alto de cada cartón */
+  display: flex;
+  flex-direction: column;
+  font-family: 'Arial', sans-serif;
+  color: black;
+  page-break-inside: avoid; /* Evita que un cartón se divida entre páginas */
+}
+
+.bingoCardHeader {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  background-color: #4CAF50; /* Un color de cabecera para impresión */
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 5px 0;
+  font-size: 16px;
+}
+
+.bingoCardHeader span {
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.bingoCardHeader span:last-child {
+  border-right: none;
+}
+
+.bingoCardGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  flex-grow: 1;
+  border-top: 1px solid black;
+}
+
+.bingoCardCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.cardId {
+  font-size: 12px;
+  text-align: center;
+  padding: 5px;
+  border-top: 1px solid black;
+  background-color: #f0f0f0;
+}
+
+/* Media query para impresión */
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+    background: none;
+  }
+  .printContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0.5in;
+    width: 7.5in;
+    height: 10in;
+    padding: 0.25in;
+  }
+  .bingoCard {
+    border: 1px solid black;
+    width: 3.5in;
+    height: 4.5in;
+    box-shadow: none;
+  }
+  /* Eliminar elementos que no queremos imprimir, como el menú de opciones */
+  .overlay {
+    display: none !important;
+  }
+  /* Asegurar que cada página contenga 4 cartones */
+  .printContainer > *:nth-child(4n) {
+    page-break-after: always;
+  }
+}

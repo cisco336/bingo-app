@@ -292,6 +292,11 @@ function App() {
           generatedCards={generatedCards}
         />
       )}
+      <footer className={styles.footer}>
+        <p className={styles.footerText}>
+          Donación especial de {new Date().toLocaleString('es-ES', { month: 'long' })} de {new Date().getFullYear()} del Apartamento 112, Torre 3.
+        </p>
+      </footer>
     </div>
   );
 }

@@ -51,7 +51,7 @@
 }
 
 .lastCalledNumberContainer {
-  @apply w-96 mb-6 p-3 rounded-xl border-4 border-amber-300 shadow-xl flex flex-col items-center justify-center relative;
+  @apply min-w-96 mb-6 p-3 rounded-xl border-4 border-amber-300 shadow-xl flex flex-col items-center justify-center relative;
 }
 
 @media (min-width: 768px) {

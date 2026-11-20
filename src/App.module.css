@@ -67,7 +67,7 @@
 
 /* Estilos para el indicador de modalidad */
 .gameModeIndicatorContainer {
-    @apply bg-black/30 border-2 border-teal-400 rounded-xl p-4 mb-6 text-center shadow-lg;
+    @apply bg-black/30 border-2 border-teal-400 rounded-xl p-4 mb-6 mx-auto text-center shadow-lg w-full max-w-[1376px];
 }
 
 @media (min-width: 768px) {
@@ -145,4 +145,12 @@
     .bingoBoardContainer {
         flex: 2; /* Permite que el tablero crezca el doble que el panel */
     }
+}
+
+.footer {
+  @apply mt-8 py-4 text-center text-gray-400 text-sm;
+}
+
+.footerText {
+  @apply text-white;
 }
