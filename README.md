@@ -16,6 +16,11 @@ El proyecto está construido con React y TypeScript, utilizando Tailwind CSS par
     -   Indicador gigante y llamativo del último número cantado (ej. "B-12").
     -   Contador de cuántos números quedan por salir.
     -   Historial de los últimos 5 números cantados en formato de "píldoras".
+-   **Nuevos Modos de Juego y Opciones:**
+    -   Implementación de nuevos modos de juego: `COLUMN_B`, `COLUMN_N`, `COLUMN_G`, `COLUMN_O`, `VOWELS_ONLY`, `CONSONANTS_ONLY`, `B_AND_O`, `U_PATTERN`.
+    -   Menú de opciones para reiniciar el juego y generar nuevas tarjetas de bingo.
+    -   Persistencia del modo de juego activo.
+-   **Generación de Tarjetas de Bingo:** Capacidad de generar tarjetas de bingo aleatorias para los jugadores.
 -   **Experiencia de Usuario (UX/UI) Mejorada:**
     -   Efectos visuales y animaciones sutiles al cantar un nuevo número para atraer la atención.
     -   Efectos de sonido cortos (campanilla) al cantar un número.
@@ -96,7 +101,9 @@ El proyecto sigue una estructura modular:
 
 -   `src/`: Contiene el código fuente principal.
     -   `App.tsx`: Componente principal que gestiona el estado global y la lógica del juego.
-    -   `components/`: Componentes reutilizables (`ControlPanel.tsx`, `TablaBingo.tsx`).
+    -   `components/`: Componentes reutilizables (`ControlPanel.tsx`, `TablaBingo.tsx`, `OptionsMenu.tsx`, `BingoCard.tsx`).
+    -   `hooks/`: Custom hooks para lógicas específicas (`useBingoGame.ts`, `useSound.ts`).
+    -   `utils/`: Funciones de utilidad (`bingoUtils.ts`, `patternUtils.ts`).
     -   `types/`: Definiciones de tipos e interfaces (`types.ts`).
     -   `*.module.css`: Archivos CSS Modules para la encapsulación de estilos de cada componente.
     -   `main.tsx`: Punto de entrada de la aplicación.
@@ -105,16 +112,40 @@ El proyecto sigue una estructura modular:
 -   `tailwind.config.js`: Configuración de Tailwind CSS.
 -   `tsconfig.json`: Configuración de TypeScript.
 
-## Contribuciones
+## Futuras Mejoras
 
-Las contribuciones son bienvenidas. Si deseas mejorar el proyecto, sigue estos pasos:
+Aquí hay algunas ideas para futuras mejoras del proyecto:
 
-1.  Haz un `fork` del repositorio.
-2.  Crea una nueva rama (`git checkout -b feature/tu-caracteristica`).
-3.  Realiza tus cambios.
-4.  Haz un commit de tus cambios (`git commit -m "feat: Agrega tu nueva característica"`).
-5.  Sube tu rama (`git push origin feature/tu-caracteristica`).
-6.  Abre un Pull Request.
+-   **Personalización de Tarjetas:** Permitir a los usuarios personalizar sus tarjetas (por ejemplo, eligiendo un diseño o cargando sus propios números).
+-   **Múltiples Jugadores:** Implementar la lógica para que varios jugadores puedan conectar sus propias tarjetas y el sistema valide automáticamente los bingos.
+-   **Integración con Backend:** Para juegos más complejos o seguimiento de estadísticas, considerar una integración con un backend para persistencia de datos a largo plazo y gestión de salas.
+-   **Más Modos de Juego:** Continuar añadiendo nuevos y creativos patrones de bingo.
+-   **Soporte Multilingüe:** Permitir la internacionalización de la interfaz de usuario.
+-   **Accesibilidad:** Mejorar la accesibilidad para usuarios con diferentes necesidades.
+-   **Temas Personalizados:** Ofrecer opciones de temas visuales para la aplicación.
+
+## Contribuciones de Agentes de Codificación
+
+Este proyecto está configurado para facilitar la contribución de agentes de codificación. Sigue estas directrices para asegurar una integración fluida de tus cambios:
+
+1.  **Entender el Contexto:** Antes de hacer cambios, asegúrate de comprender completamente la estructura del proyecto, los componentes existentes y la lógica del juego, especialmente en `App.tsx` y los custom hooks.
+2.  **Crear una Nueva Rama:** Siempre crea una nueva rama para tus cambios, utilizando un nombre descriptivo (ej., `feature/nombre-de-la-feature`, `bugfix/descripcion-del-bug`).
+    ```bash
+    git checkout -b feature/tu-caracteristica
+    ```
+3.  **Desarrollar y Probar:** Implementa tus cambios y asegúrate de que pasen las pruebas existentes (si las hay) y no introduzcan nuevos errores.
+4.  **Mensajes de Commit Claros:** Utiliza mensajes de commit claros y concisos, siguiendo la convención de `feat:`, `fix:`, `docs:`, `chore:`, etc.
+    ```bash
+    git commit -m "feat: Agrega tu nueva característica"
+    Co-Authored-By: Claude Code <noreply@anthropic.com>
+    ```
+5.  **Abrir un Pull Request:** Una vez que tus cambios estén listos y probados, sube tu rama y abre un Pull Request contra la rama `main`.
+    ```bash
+    git push origin feature/tu-caracteristica
+    # Luego, abre un Pull Request a través de la interfaz de GitHub.
+    ```
+    Asegúrate de incluir una descripción clara de tus cambios en el Pull Request.
+6.  **Revisión de Código:** Esté preparado para la revisión del código y realiza los ajustes necesarios según la retroalimentación.
 
 ## Licencia
 

@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 /* Keyframes para la animación de 'pop' de los números del tablero */
 @keyframes number-pop {

@@ -1,56 +1,26 @@
 /* src/components/PlayerCardPatternVisual.module.css */
+@reference "../index.css";
 
 .cardVisualContainer {
-  margin-top: 1rem; /* Espacio superior */
-  margin-bottom: 1rem; /* Espacio inferior */
-  max-width: 200px; /* Tamaño fijo para el mini-esquema */
-  margin-left: auto;
-  margin-right: auto;
-  border: 2px solid #a78bfa; /* indigo-400 */
-  border-radius: 0.5rem; /* rounded-md */
-  overflow: hidden; /* Para que los bordes redondeados se apliquen bien */
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-md */
-  background-color: rgba(255, 255, 255, 0.05); /* bg-white/5 */
+  @apply mt-4 mb-4 mx-auto border-2 border-indigo-400 rounded-md overflow-hidden shadow-md bg-white/5 w-4/5 max-w-[200px];
 }
 
 .cardHeader {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  background-color: #4c1d95; /* purple-800 */
-  padding: 0.25rem 0; /* py-1 */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  @apply grid grid-cols-5 bg-purple-800 py-1 border-b border-white/10;
 }
 
 .cardHeaderLetter {
-  text-align: center;
-  font-weight: 700; /* font-bold */
-  color: #fff; /* text-white */
-  font-size: 0.875rem; /* text-sm */
+  @apply text-center font-bold text-white text-sm;
 }
 
 .cardGrid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1px; /* Gap entre celdas */
-  background-color: rgba(255, 255, 255, 0.1); /* Color de fondo para las líneas del grid */
+  @apply grid gap-px bg-white/10 grid-cols-5;
 }
 
 .cardCell {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  aspect-ratio: 1 / 1; /* Celdas cuadradas */
-  background-color: rgba(255, 255, 255, 0.08); /* Fondo de celda normal */
-  color: rgba(255, 255, 255, 0.4); /* Color de texto sutil */
-  font-size: 0.8rem; /* Tamaño de texto */
-  font-weight: 600; /* font-semibold */
-  transition: background-color 0.2s ease-out;
+  @apply flex items-center justify-center w-full bg-white/10 text-white/70 text-base font-semibold aspect-square transition-colors duration-200 ease-out;
 }
 
 .cardCellHighlighted {
-  background-color: #84cc16; /* bg-lime-500 */
-  color: #fff; /* text-white */
-  box-shadow: inset 0 0 0 1px #bef264; /* ring-1 ring-lime-300 */
-  font-weight: 800; /* font-extrabold */
+  @apply bg-lime-500 text-white ring-1 ring-lime-300 font-extrabold;
 }
