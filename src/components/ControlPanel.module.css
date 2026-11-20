@@ -1,16 +1,17 @@
 /* src/components/ControlPanel.module.css */
+@reference "../index.css";
 
 .controlPanelWrapper {
-  @apply h-full flex flex-col justify-between text-center;
+  @apply flex flex-col justify-between text-center;
 }
 
 .title {
   @apply text-3xl font-extrabold text-white mb-6 drop-shadow-lg;
 }
 
-@media (min-width: 768px) { /* md */
+@media (min-width: 768px) {
   .title {
-    font-size: 2.25rem; /* md:text-4xl */
+    @apply text-4xl;
   }
 }
 
@@ -23,9 +24,9 @@
   @apply block text-base text-yellow-200 font-medium mb-2;
 }
 
-@media (min-width: 768px) { /* md */
+@media (min-width: 768px) {
   .gameModeSelectorLabel {
-    font-size: 1.125rem; /* md:text-lg */
+    @apply text-lg;
   }
 }
 
@@ -37,10 +38,9 @@
   background-size: 1.25em 1.25em;
 }
 
-@media (min-width: 768px) { /* md */
+@media (min-width: 768px) {
   .gameModeSelect {
-    padding: 0.75rem 1rem; /* md:py-3 md:px-4 */
-    font-size: 1rem; /* md:text-base */
+    @apply py-3 px-4 text-base;
     background-size: 1.5em 1.5em;
     padding-right: 2.5rem;
   }
@@ -51,103 +51,82 @@
 }
 
 .lastCalledNumberContainer {
-  @apply mb-6 p-3 bg-gradient-to-br from-purple-500 to-pink-500 rounded-[1.5rem] shadow-xl border-4 border-yellow-300 flex flex-col items-center justify-center;
-  position: relative;
+  @apply w-96 mb-6 p-3 rounded-xl border-4 border-amber-300 shadow-xl flex flex-col items-center justify-center relative;
 }
 
-@media (min-width: 768px) { /* md */
+@media (min-width: 768px) {
   .lastCalledNumberContainer {
-    margin-bottom: 2rem; /* md:mb-8 */
-    padding: 1rem; /* md:p-4 */
+    @apply mb-8 p-4;
   }
 }
 
 .pingAnimation {
-  @apply rounded-[1.5rem] bg-yellow-300 opacity-75;
-  position: absolute;
-  inset: 0;
+  @apply  bg-yellow-300 opacity-75 absolute inset-0;
   animation: ping-once 0.75s cubic-bezier(0, 0, 0.2, 1);
 }
 
 .lastCalledLabel {
-  @apply text-base text-yellow-200 font-semibold mb-1;
-  z-index: 10;
+  @apply text-base text-yellow-200 font-semibold mb-1 relative z-10;
 }
 
-@media (min-width: 768px) { /* md */
+@media (min-width: 768px) {
   .lastCalledLabel {
-    font-size: 1.25rem; /* md:text-xl */
-    margin-bottom: 0.5rem; /* md:mb-2 */
+    @apply text-xl mb-2;
   }
 }
 
 .lastCalledNumber {
-  @apply text-6xl font-black text-white drop-shadow;
-  line-height: 1;
-  z-index: 10;
+  @apply text-xl font-black text-white drop-shadow leading-none relative z-10;
 }
 
-@media (min-width: 640px) { /* sm */
+@media (min-width: 640px) {
   .lastCalledNumber {
-    font-size: 5rem; /* sm:text-7xl */
+    @apply text-7xl;
   }
 }
 
-@media (min-width: 768px) { /* md */
+@media (min-width: 768px) {
   .lastCalledNumber {
-    font-size: 5.625rem; /* md:text-9xl */
+    @apply text-9xl;
   }
 }
 
 .callNextButton {
-  @apply w-full py-3 px-4 mb-6 bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-2xl font-extrabold rounded-xl shadow-lg;
-  transform: scale(1);
-  transition: all 0.3s ease-out;
-  position: relative;
-  overflow: hidden;
+  @apply w-full py-3 px-4 mb-6 text-white text-2xl font-extrabold rounded-xl shadow-lg scale-100 transition-all duration-300 ease-out relative overflow-hidden;
+  background-image: linear-gradient(to right, #10b981, #14b8a6);
 }
 
 .callNextButton:hover {
-  @apply bg-gradient-to-r from-emerald-700 to-teal-700;
-  transform: scale(1.05);
+  @apply scale-105;
+  background-image: linear-gradient(to right, #047857, #0f766e);
 }
 
 .callNextButton:active {
-  transform: scale(0.95);
+  @apply scale-95;
 }
 
 .callNextButton:disabled {
-  @apply opacity-50 cursor-not-allowed;
-  transform: scale(1);
+  @apply opacity-50 cursor-not-allowed scale-100;
 }
 
 .callNextButtonRelief {
-  @apply opacity-0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.2), transparent);
-  transition: opacity 0.3s;
+  @apply opacity-0 absolute inset-0 transition-opacity duration-300;
+  background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.2), transparent);
 }
 
 .callNextButton:hover .callNextButtonRelief {
   @apply opacity-100;
 }
 
-@media (min-width: 640px) { /* sm */
+@media (min-width: 640px) {
   .callNextButton {
-    font-size: 1.875rem; /* sm:text-3xl */
+    @apply text-3xl;
   }
 }
 
-@media (min-width: 768px) { /* md */
+@media (min-width: 768px) {
   .callNextButton {
-    padding-top: 1.25rem; /* md:py-5 */
-    padding-bottom: 1.25rem; /* md:py-5 */
-    font-size: 2.25rem; /* md:text-4xl */
-    margin-bottom: 2rem; /* md:mb-8 */
+    @apply py-5 text-4xl mb-8;
   }
 }
 
@@ -168,21 +147,19 @@
   @apply bg-blue-600;
 }
 
-@media (min-width: 768px) { /* md */
+@media (min-width: 768px) {
   .toggleOrientationButton {
-    margin-bottom: 2rem; /* md:mb-8 */
+    @apply mb-8;
   }
 }
-
 
 .historyContainer {
   @apply mb-4 p-3 bg-white/10 rounded-xl shadow-inner border border-white/10;
 }
 
-@media (min-width: 768px) { /* md */
+@media (min-width: 768px) {
   .historyContainer {
-    margin-bottom: 1.5rem; /* md:mb-6 */
-    padding: 1rem; /* md:p-4 */
+    @apply mb-6 p-4;
   }
 }
 
@@ -190,10 +167,9 @@
   @apply text-base text-yellow-200 font-medium text-center mb-2;
 }
 
-@media (min-width: 768px) { /* md */
+@media (min-width: 768px) {
   .historyTitle {
-    font-size: 1.125rem; /* md:text-lg */
-    margin-bottom: 0.75rem; /* md:mb-3 */
+    @apply text-lg mb-3;
   }
 }
 
@@ -201,9 +177,9 @@
   @apply flex flex-wrap justify-center gap-1;
 }
 
-@media (min-width: 768px) { /* md */
+@media (min-width: 768px) {
   .historyNumbers {
-    gap: 0.5rem; /* md:gap-2 */
+    @apply gap-2;
   }
 }
 
@@ -211,13 +187,9 @@
   @apply bg-blue-600 text-white px-3 py-0.5 rounded-full text-xs font-semibold shadow;
 }
 
-@media (min-width: 768px) { /* md */
+@media (min-width: 768px) {
   .historyNumberPill {
-    padding-left: 1rem; /* md:px-4 */
-    padding-right: 1rem; /* md:px-4 */
-    padding-top: 0.25rem; /* md:py-1 */
-    padding-bottom: 0.25rem; /* md:py-1 */
-    font-size: 0.875rem; /* md:text-md */
+    @apply px-4 py-1 text-sm;
   }
 }
 
@@ -225,9 +197,9 @@
   @apply text-gray-400 text-sm;
 }
 
-@media (min-width: 768px) { /* md */
+@media (min-width: 768px) {
   .historyEmpty {
-    font-size: 1.125rem; /* md:text-lg */
+    @apply text-lg;
   }
 }
 
@@ -235,9 +207,9 @@
   @apply p-3 bg-white/10 rounded-xl shadow-inner border border-white/10 mt-auto;
 }
 
-@media (min-width: 768px) { /* md */
+@media (min-width: 768px) {
   .remainingCounterContainer {
-    padding: 1rem; /* md:p-4 */
+    @apply p-4;
   }
 }
 
@@ -245,9 +217,9 @@
   @apply text-base text-yellow-200 font-medium;
 }
 
-@media (min-width: 768px) { /* md */
+@media (min-width: 768px) {
   .remainingCounterLabel {
-    font-size: 1.125rem; /* md:text-lg */
+    @apply text-lg;
   }
 }
 
@@ -255,14 +227,14 @@
   @apply text-4xl font-bold text-yellow-300 mt-1 drop-shadow;
 }
 
-@media (min-width: 640px) { /* sm */
+@media (min-width: 640px) {
   .remainingCounterNumber {
-    font-size: 3rem; /* sm:text-5xl */
+    @apply text-5xl;
   }
 }
 
-@media (min-width: 768px) { /* md */
+@media (min-width: 768px) {
   .remainingCounterNumber {
-    font-size: 3.75rem; /* md:text-6xl */
+    @apply text-6xl;
   }
 }

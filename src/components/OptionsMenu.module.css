@@ -1,19 +1,13 @@
 /* src/components/OptionsMenu.module.css */
+@reference "../index.css";
 
 .overlay {
-  @apply bg-black/70 flex items-center justify-center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1000;
+  @apply bg-black/70 flex items-center justify-center fixed inset-0 z-[1000];
   backdrop-filter: blur(5px);
 }
 
 .menuContainer {
-  @apply bg-gray-900 border border-gray-700 rounded-xl p-6 w-[90%] max-w-[600px] max-h-[90%] overflow-y-auto shadow-2xl text-gray-200;
-  position: relative;
+  @apply bg-gray-900 border border-gray-700 rounded-xl p-6 w-[90%] max-w-[600px] max-h-[90%] overflow-y-auto shadow-2xl text-gray-200 relative;
 }
 
 .menuTitle {
@@ -78,13 +72,11 @@
 }
 
 .bingoCardGrid {
-  @apply grid gap-px bg-gray-900;
-  grid-template-columns: repeat(5, 1fr);
+  @apply grid gap-px bg-gray-900 grid-cols-5;
 }
 
 .bingoCardCell {
-  @apply flex items-center justify-center w-full bg-gray-800 text-gray-200 text-base font-medium;
-  aspect-ratio: 1 / 1;
+  @apply flex items-center justify-center w-full bg-gray-800 text-gray-200 text-base font-medium aspect-square;
 }
 
 .bingoCardCell:nth-child(13) { /* N3 cell, free space */
@@ -96,14 +88,7 @@
 }
 
 .closeButton {
-  @apply text-white text-2xl p-2 rounded-full;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
+  @apply text-white text-2xl p-2 rounded-full absolute top-4 right-4 bg-transparent border-none cursor-pointer transition-colors duration-200 ease-in-out;
 }
 
 .closeButton:hover {

@@ -1,9 +1,8 @@
 /* src/components/PlayerCardPatternVisual.module.css */
+@reference "../index.css";
 
 .cardVisualContainer {
-  @apply mt-4 mb-4 mx-auto border-2 border-indigo-400 rounded-md overflow-hidden shadow-md bg-white/5;
-  width: 80%;
-  max-width: 200px;
+  @apply mt-4 mb-4 mx-auto border-2 border-indigo-400 rounded-md overflow-hidden shadow-md bg-white/5 w-4/5 max-w-[200px];
 }
 
 .cardHeader {
@@ -15,14 +14,11 @@
 }
 
 .cardGrid {
-  @apply grid gap-px bg-white/10;
-  grid-template-columns: repeat(5, 1fr);
+  @apply grid gap-px bg-white/10 grid-cols-5;
 }
 
 .cardCell {
-  @apply flex items-center justify-center w-full bg-white/10 text-white/70 text-base font-semibold;
-  aspect-ratio: 1 / 1;
-  transition: background-color 0.2s ease-out;
+  @apply flex items-center justify-center w-full bg-white/10 text-white/70 text-base font-semibold aspect-square transition-colors duration-200 ease-out;
 }
 
 .cardCellHighlighted {

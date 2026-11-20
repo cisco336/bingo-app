@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import TablaBingo from './components/TablaBingo';
 import ControlPanel from './components/ControlPanel';
 import PlayerCardPatternVisual from './components/PlayerCardPatternVisual';
@@ -125,7 +125,7 @@ const generateSingleBingoCard = (id: number): BingoCard => {
 };
 
 
-function App(): JSX.Element {
+function App() {
   const bingoSound = new Audio('/sounds/bingo-ding.mp3');
 
   const playBingoSound = useCallback(() => {

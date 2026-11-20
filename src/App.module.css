@@ -1,121 +1,148 @@
 /* src/App.module.css */
+@reference "./index";
 
 .container {
-  @apply min-h-screen bg-gradient-to-br from-[#000080] via-[#4B0082] to-[#800080] text-gray-100 p-4 font-sans flex flex-col;
+    @apply min-h-screen text-gray-100 p-4 font-sans flex flex-col;
+    background-image: linear-gradient(
+        to bottom right,
+        #000080,
+        #4b0082,
+        #800080
+    );
 }
 
-@media (min-width: 640px) { /* sm */
-  .container {
-    padding: 1.5rem; /* sm:p-6 */
-  }
+@media (min-width: 640px) {
+    /* sm */
+    .container {
+        padding: 1.5rem; /* sm:p-6 */
+    }
 }
 
 .header {
-  @apply text-center mb-8;
+    @apply text-center mb-8;
 }
 
-@media (min-width: 1024px) { /* lg */
-  .header {
-    margin-bottom: 3rem; /* lg:mb-12 */
-  }
+@media (min-width: 1024px) {
+    /* lg */
+    .header {
+        margin-bottom: 3rem; /* lg:mb-12 */
+    }
 }
 
 .title {
-  @apply text-5xl font-extrabold tracking-tight bg-gradient-to-r from-teal-300 to-blue-400 bg-clip-text text-transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    @apply text-5xl font-extrabold tracking-tight text-transparent;
+    background-image: linear-gradient(
+        to right,
+        #5eead4,
+        #60a5fa
+    ); /* teal-300 a blue-400 */
+    -webkit-background-clip: text;
+    background-clip: text;
 }
 
-@media (min-width: 768px) { /* md */
-  .title {
-    font-size: 3.75rem; /* md:text-6xl */
-  }
+@media (min-width: 768px) {
+    /* md */
+    .title {
+        font-size: 3.75rem; /* md:text-6xl */
+    }
 }
 
-@media (min-width: 1024px) { /* lg */
-  .title {
-    font-size: 4.5rem; /* lg:text-7xl */
-  }
+@media (min-width: 1024px) {
+    /* lg */
+    .title {
+        font-size: 4.5rem; /* lg:text-7xl */
+    }
 }
 
 .subtitle {
-  @apply mt-3 text-lg text-indigo-200 max-w-2xl mx-auto;
+    @apply mt-3 text-lg text-indigo-200 max-w-2xl mx-auto;
 }
 
-@media (min-width: 768px) { /* md */
-  .subtitle {
-    font-size: 1.25rem; /* md:text-xl */
-  }
+@media (min-width: 768px) {
+    /* md */
+    .subtitle {
+        font-size: 1.25rem; /* md:text-xl */
+    }
 }
 
 /* Estilos para el indicador de modalidad */
 .gameModeIndicatorContainer {
-  @apply bg-black/30 border-2 border-teal-400 rounded-xl p-4 mb-6 text-center shadow-lg;
+    @apply bg-black/30 border-2 border-teal-400 rounded-xl p-4 mb-6 text-center shadow-lg;
 }
 
-@media (min-width: 768px) { /* md */
-  .gameModeIndicatorContainer {
-    padding: 1.5rem; /* md:p-6 */
-    margin-bottom: 2rem; /* md:mb-8 */
-  }
+@media (min-width: 768px) {
+    /* md */
+    .gameModeIndicatorContainer {
+        padding: 1.5rem; /* md:p-6 */
+        margin-bottom: 2rem; /* md:mb-8 */
+    }
 }
 
 .gameModeIndicatorTitle {
-  @apply text-3xl font-extrabold text-indigo-300 mb-2 drop-shadow;
+    @apply text-3xl font-extrabold text-indigo-300 mb-2 drop-shadow;
 }
 
-@media (min-width: 768px) { /* md */
-  .gameModeIndicatorTitle {
-    font-size: 2.25rem; /* md:text-4xl */
-  }
+@media (min-width: 768px) {
+    /* md */
+    .gameModeIndicatorTitle {
+        font-size: 2.25rem; /* md:text-4xl */
+    }
 }
 
 .gameModeName {
-  @apply text-yellow-300;
+    @apply text-yellow-300;
 }
 
 .gameModePatternVisual {
-  @apply bg-white/5 rounded-md p-3 mt-3 mb-3 font-mono whitespace-pre-wrap text-center text-indigo-200 text-sm max-w-fit mx-auto shadow-inner;
+    @apply bg-white/5 rounded-md p-3 mt-3 mb-3 font-mono whitespace-pre-wrap text-center text-indigo-200 text-sm max-w-fit mx-auto shadow-inner;
 }
 
-@media (min-width: 768px) { /* md */
-  .gameModePatternVisual {
-    font-size: 1rem; /* text-base para desktop */
-    padding: 1rem; /* md:p-4 */
-  }
+@media (min-width: 768px) {
+    /* md */
+    .gameModePatternVisual {
+        font-size: 1rem; /* text-base para desktop */
+        padding: 1rem; /* md:p-4 */
+    }
 }
 
 .gameModeDescription {
-  @apply text-lg text-blue-200 mt-2;
+    @apply text-lg text-blue-200 mt-2;
 }
 
-@media (min-width: 768px) { /* md */
-  .gameModeDescription {
-    font-size: 1.25rem; /* md:text-xl */
-  }
+@media (min-width: 768px) {
+    /* md */
+    .gameModeDescription {
+        font-size: 1.25rem; /* md:text-xl */
+    }
 }
 
 .mainContent {
-  @apply flex flex-col gap-6 max-w-7xl mx-auto flex-grow;
+    @apply flex flex-col gap-6 max-w-full mx-auto grow overflow-x-hidden;
 }
 
-@media (min-width: 1024px) { /* lg */
-  .mainContent {
-    flex-direction: row; /* lg:flex-row */
-    gap: 2rem; /* lg:gap-8 */
-  }
+@media (min-width: 1024px) {
+    /* lg */
+    .mainContent {
+        @apply grid grid-cols-[1fr_2fr] gap-8;
+        /*flex-direction: row; /* lg:flex-row */
+        /*display: grid;*/
+        /*grid-template-columns: 1fr 2fr;*/
+        /*gap: 2rem; /* lg:gap-8 */
+    }
 }
 
-.panelContainer, .bingoBoardContainer {
-  @apply flex-shrink-0 bg-white/10 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-white/20;
+.panelContainer,
+.bingoBoardContainer {
+    @apply shrink-0 bg-white/10 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-white/20 overflow-auto;
 }
 
-@media (min-width: 1024px) { /* lg */
-  .panelContainer {
-    flex: 1; /* Permite que el panel crezca */
-    max-width: 28rem; /* Limita el ancho del panel en pantallas muy grandes */
-  }
-  .bingoBoardContainer {
-    flex: 2; /* Permite que el tablero crezca el doble que el panel */
-  }
+@media (min-width: 1024px) {
+    /* lg */
+    .panelContainer {
+        flex: 1; /* Permite que el panel crezca */
+        max-width: 28rem; /* Limita el ancho del panel en pantallas muy grandes */
+    }
+    .bingoBoardContainer {
+        flex: 2; /* Permite que el tablero crezca el doble que el panel */
+    }
 }
